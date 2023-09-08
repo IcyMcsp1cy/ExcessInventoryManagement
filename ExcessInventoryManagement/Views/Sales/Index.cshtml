@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>Sales</h2>
+<p>enter the sales per day below as a list with commas seperating the sales for each day</p>
+<select name="Select Markdown Plan" id="markdownSelector">
+    <option value="default">Select Markdown Plan</option>
+</select>
+<br />
+
+<p id="dayCount"></p>
+<input id="salesData" placeholder="Sales Data (ex 10,3,0,9)" type="text" tabindex="1" width="5000">
+<br />
+<button name="submit" type="submit" id="submit2" onclick="createSalesData()">Create Sales Data</button>

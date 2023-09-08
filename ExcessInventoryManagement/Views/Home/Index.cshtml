@@ -1,0 +1,68 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+@*@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>*@
+
+@{
+    ViewBag.Title = "Excess Inventory Management";
+}
+<main aria-labelledby="title">
+    <h2 id="title">@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+    <div class="container">
+        <form id="markdown" action="" method="post">
+            <select name="Select Markdown Plan" id="markdownSelector">
+                <option value="default">Select Markdown Plan</option>
+            </select>
+            <br />
+            <br />
+            <select name="Select Product" id="productSelector">
+                <option value="default">Select Product</option>
+            </select>
+            <br />
+            <br />
+            <fieldset>
+                <input id="planName" placeholder="Markdown Plan Name" type="text" tabindex="1" required>
+            </fieldset>
+            <br />
+            <fieldset>
+                <input id="startDate" placeholder="Start Date (format dd/mm/yyyy)" type="datetime" tabindex="2" required>
+            </fieldset>
+            <br />
+            <fieldset>
+                <input id="endDate" placeholder="End Date (format dd/mm/yyyy)" type="datetime" tabindex="3" required>
+            </fieldset>
+            <br />
+            <fieldset>
+                <input id="initialReduction" placeholder="Initial Price Reduction" type="number" tabindex="4" required>
+            </fieldset>
+            <br />
+            <fieldset>
+                <input id="midwayReduction" placeholder="Midway Price Reduction" type="number" tabindex="4" required>
+            </fieldset>
+            <br />
+            <fieldset>
+                <input id="finalReduction" placeholder="Final Price Reduction" type="number" tabindex="4" required>
+            </fieldset>
+        </form>
+        <br />
+        <button name="submit" type="submit" id="submit2" onclick="createMarkdownPlan()">Create/Update Markdown Plan</button>
+        <br />
+        <br />
+        <button id="deleteMarkdown" name="Delete Markdown Plan" id="delete" onclick="deleteMarkdownPlan()">Delete Markdown Plan</button>
+
+    </div>
+</main>
