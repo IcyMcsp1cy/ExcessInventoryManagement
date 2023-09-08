@@ -4,20 +4,26 @@ var selectedProductID;
 var selectedPlan;
 
 $(document).ready(function () {
+    //MarkdownPlan page
     getProducts();
     getMarkdownPlans();
     $('#markdownSelector').change(function () {
         selectMarkdownPlan($(this).val());
     });
-    $('#salesMarkdownSelector').change(function () {
-        selectSalesMarkdownPlan($(this).val());
-    });
     $('#productSelector').change(function () {
         selectedProductID = $(this).val();
     });
+
+    //DailyMetrics page
+    $('#dailyMetricsMarkdownSelector').change(function () {
+        selectDailyMetricsMarkdownPlan($(this).val());
+        if (selectedPlan != undefined) {
+            getDailyMetrics(selectedPlan);
+        }
+    });
 });
 
-//Home Page functions
+//MarkdownPlan Page functions
 function getProducts() {
     $.ajax({
         url: '/api/Products/getProducts',
@@ -46,6 +52,10 @@ function getMarkdownPlans() {
             // Loop through the data and add options to the select element
             for (var i = 0; i < data.length; i++) {
                 $('#markdownSelector').append($('<option>', {
+                    value: data[i].markdownPlanId,
+                    text: data[i].planName
+                }));
+                $('#dailyMetricsMarkdownSelector').append($('<option>', {
                     value: data[i].markdownPlanId,
                     text: data[i].planName
                 }));
@@ -106,7 +116,7 @@ function createMarkdownPlan() {
         data: dataObject,
         dataType: 'json',
         success: function (result) {    // Returns True/False
-            // DO SOMETHING
+            // TODO add success/failure message
         },
         failure: function (xhr, status, err) {
             console.log(xhr + " " + status + " " + err);
@@ -122,7 +132,7 @@ function deleteMarkdownPlan() {
         cache: false,
         dataType: 'json',
         success: function (result) {    // Returns True/False
-            // DO SOMETHING
+            // TODO add success/failure message
         },
         failure: function (xhr, status, err) {
             console.log(xhr + " " + status + " " + err);
@@ -148,7 +158,7 @@ function createSalesData() {
         data: salesObject,
         dataType: 'json',
         success: function (result) {    // Returns True/False
-            // DO SOMETHING
+            // TODO add success/failure message
         },
         failure: function (xhr, status, err) {
             console.log(xhr + " " + status + " " + err);
@@ -156,10 +166,39 @@ function createSalesData() {
     });
 }
 
-function selectSalesMarkdownPlan(id) {
+// DailyMetrics page functions
+function selectDailyMetricsMarkdownPlan(id) {
     for (i = 0; i < markdownPlanList.length; i++) {
         if (id == markdownPlanList[i].markdownPlanId) {
             selectedPlan = markdownPlanList[i];
         }
     }
+}
+
+function getDailyMetrics(markdownPlan) {
+    $.ajax({
+        url: '/api/DailyMetrics/GetDailyMetrics?markdownPlanId=' + markdownPlan.markdownPlanId,
+        type: 'GET',
+        success: function (data) {
+            var tbl = document.getElementById('dailyMetricsTable');
+            for (i = 0; i < data.length; i++) {
+                row = tbl.insertRow(tbl.rows.length);
+                createCell(row.insertCell(0), i + 1);
+                createCell(row.insertCell(1), data[i].unitsSold);
+                createCell(row.insertCell(2), data[i].margin);
+                createCell(row.insertCell(3), data[i].profit);
+                createCell(row.insertCell(4), data[i].remainingInventory);
+            }
+        },
+        error: function (error) {
+            // handle the error
+        }
+    });
+}
+
+function createCell(cell, text) {
+    var div = document.createElement('div'), // create DIV element
+        txt = document.createTextNode(text); // create text node
+    div.appendChild(txt);                    // append text node to the DIV
+    cell.appendChild(div);                   // append DIV to the table cell
 }

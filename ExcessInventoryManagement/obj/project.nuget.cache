@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Bfy+OfNUBTo9jAxuSvO8S9uVGc2Re/ksOEWUJF9kj+tIAHvszLi71Z8CQvDg+KJst8MEOSVZHsrOW2HYQJND6A==",
+  "dgSpecHash": "U056zHyr+TT8gxY408rYMQuCMcfWCvc+60pbdMvHzDDD4gXOCQsUC+P3YmTs1fznlSvARMBUcXL11NYC1xws1A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jared\\source\\repos\\ExcessInventoryManagement\\ExcessInventoryManagement\\ExcessInventoryManagement.csproj",
+  "projectFilePath": "C:\\Local Repos\\ExcessInventoryManagement\\ExcessInventoryManagement\\ExcessInventoryManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jared\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\jared\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

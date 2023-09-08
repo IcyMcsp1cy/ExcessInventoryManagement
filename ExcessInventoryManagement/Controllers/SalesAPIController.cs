@@ -13,24 +13,32 @@ namespace ExcessInventoryManagement.Controllers
         public bool CreateMarkdownPlan(Sales sales)
         {
             
-            // first, we split sales data on commas
-            // next, we sum up the data to determine if it is less than or equal to inventory
-            // finally, 
+            
             using (ExcessInventoryManagementContext context = new ExcessInventoryManagementContext())
             {
                 var getInventory = (from markdown in context.MarkdownPlans
                                     join inventory in context.Inventories on markdown.ProductId equals inventory.ProductId
                                     where markdown.MarkdownPlanId == sales.MarkdownPlanId
                                     select inventory).FirstOrDefault();
+                var getMarkdown = (from markdown in context.MarkdownPlans
+                                   where markdown.MarkdownPlanId == sales.MarkdownPlanId
+                                   select markdown).FirstOrDefault();
+
+                // split sales data on commas
                 string[] salesData = sales.SalesData.Split(',');
-                int salesCount = 0;
-                int todaysSales;
+                int totalInventorySold = 0;
+                int dailyInventorySold;
+                // loop through sales data to determine inventory sold
                 for (int i = 0; i < salesData.Length; i++)
                 {
-                    todaysSales = Int32.Parse(salesData[i]);
-                    salesCount += todaysSales;
+                    dailyInventorySold = Int32.Parse(salesData[i]);
+                    totalInventorySold += dailyInventorySold;
                 }
-                if(salesCount <= getInventory.ProductCount)
+                TimeSpan dateDifference = getMarkdown.EndDate - getMarkdown.StartDate;
+                
+                // check if inventory sold is less than or equal to our inventory
+                // check if our days of sales is equal to the number of days between our start and end date
+                if (totalInventorySold <= getInventory.ProductCount && salesData.Length == dateDifference.Days)
                 {
                     context.Add(sales);
                     context.SaveChanges();

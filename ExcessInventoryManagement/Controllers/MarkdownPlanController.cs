@@ -79,49 +79,5 @@ namespace ExcessInventoryManagement.Controllers
                 }
             }
         }
-
-        [HttpPost]
-        [Route("test")]
-        public bool CreateMarkdownPlan(Sales sales)
-        {
-            //TimeSpan dateDifference = markdownPlan.EndDate - markdownPlan.StartDate;
-            //if (dateDifference.Days >= 7)
-            //{
-            //    using (ExcessInventoryManagementContext context = new ExcessInventoryManagementContext())
-            //    {
-            //        var existingRecord = (from markdown in context.MarkdownPlans
-            //                              where markdown.MarkdownPlanId == markdownPlan.MarkdownPlanId
-            //                              select markdown).FirstOrDefault();
-            //        if (existingRecord == null)
-            //        {
-            //            context.Add(markdownPlan);
-            //            context.SaveChanges();
-            //        }
-            //        else
-            //        {
-            //            existingRecord.ProductId = markdownPlan.ProductId;
-            //            existingRecord.PlanName = markdownPlan.PlanName;
-            //            existingRecord.StartDate = markdownPlan.StartDate;
-            //            existingRecord.EndDate = markdownPlan.EndDate;
-            //            existingRecord.InitialPriceReduction = markdownPlan.InitialPriceReduction;
-            //            existingRecord.MidwayPriceReduction = markdownPlan.MidwayPriceReduction;
-            //            existingRecord.FinalPriceReduction = markdownPlan.FinalPriceReduction;
-            //            context.Update(existingRecord);
-            //            context.SaveChanges();
-            //        }
-            //        return true;
-            //    }
-            //}
-            var x = 1;
-            return false;
-        }
-
-        [HttpPost]
-        [Route("Help")]
-        public bool Help(Sales sales)
-        {
-            var x = 1;
-            return false;
-        }
     }
 }

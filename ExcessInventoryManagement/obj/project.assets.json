@@ -7239,11 +7239,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jared\\source\\repos\\ExcessInventoryManagement\\ExcessInventoryManagement\\ExcessInventoryManagement.csproj",
+      "projectUniqueName": "C:\\Local Repos\\ExcessInventoryManagement\\ExcessInventoryManagement\\ExcessInventoryManagement.csproj",
       "projectName": "ExcessInventoryManagement",
-      "projectPath": "C:\\Users\\jared\\source\\repos\\ExcessInventoryManagement\\ExcessInventoryManagement\\ExcessInventoryManagement.csproj",
+      "projectPath": "C:\\Local Repos\\ExcessInventoryManagement\\ExcessInventoryManagement\\ExcessInventoryManagement.csproj",
       "packagesPath": "C:\\Users\\jared\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jared\\source\\repos\\ExcessInventoryManagement\\ExcessInventoryManagement\\obj\\",
+      "outputPath": "C:\\Local Repos\\ExcessInventoryManagement\\ExcessInventoryManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jared\\AppData\\Roaming\\NuGet\\NuGet.Config",
